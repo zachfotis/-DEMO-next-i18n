@@ -1,10 +1,9 @@
 import initTranslations from '@/app/i18n';
 import LanguageChanger from '@/components/LanguageChanger';
 import TranslationsProvider from '@/components/TranslationsProvider';
-import styles from '../page.module.css';
 import BackButton from './BackButton';
 
-const i18nNamespaces = ['about', 'test'];
+const i18nNamespaces = ['about'];
 
 async function About({ params: { locale } }: { params: { locale: string } }) {
   const { t, resources } = await initTranslations(locale, i18nNamespaces);
@@ -14,7 +13,7 @@ async function About({ params: { locale } }: { params: { locale: string } }) {
       namespaces={i18nNamespaces}
       locale={locale}
       resources={resources}>
-      <main className={styles.main}>
+      <main className="flex flex-col items-center justify-center min-h-screen gap-10">
         <h1>{t('about_header')}</h1>
         <BackButton />
         <LanguageChanger />
